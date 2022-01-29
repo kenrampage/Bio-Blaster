@@ -7,10 +7,14 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float mouseSensitivity;
     [SerializeField] float rollSensitivity;
     [SerializeField] float playerSpeed;
+    
+    Rigidbody rb;
 
     void Start()
     {
-        playerSpeed = 20;
+        rb = gameObject.GetComponent<Rigidbody>();
+        //playerSpeed = 60;
+
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
@@ -28,7 +32,10 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //This makes the turn the ship left to right, multiplied by sensitivity
-        transform.Rotate(-mouseSensitivity * Input.GetAxis("Mouse Y") * Time.deltaTime, mouseSensitivity * Input.GetAxis("Mouse X") * Time.deltaTime, -Input.GetAxis("Roll") * rollSensitivity * Time.deltaTime);
+
+        transform.Rotate(mouseSensitivity * Input.GetAxis("Mouse Y") * Time.deltaTime, mouseSensitivity * Input.GetAxis("Mouse X") * 0.75f * Time.deltaTime, -Input.GetAxis("Roll") * rollSensitivity * Time.deltaTime);
+        
+
 
         //This will increase the amount of roll te longer you roll, to give a more dynamic feel
         if (Input.GetAxis("Roll") != 0)
@@ -45,7 +52,21 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //This will make the player move in all directions
-        transform.Translate(playerSpeed * .75f * Input.GetAxis("Horizontal") * Time.deltaTime, Input.GetAxis("Height") * Time.deltaTime * playerSpeed * .85f, playerSpeed * Time.deltaTime * Input.GetAxis("Vertical"));
+
+        rb.AddForce(transform.forward * Time.deltaTime * playerSpeed * Input.GetAxis("Vertical"), ForceMode.Acceleration);
+        rb.AddForce(transform.up * Time.deltaTime * playerSpeed * 0.9f * Input.GetAxis("Height"), ForceMode.Acceleration);
+        rb.AddForce(transform.right * Time.deltaTime * playerSpeed * 0.8f * Input.GetAxis("Horizontal"), ForceMode.Acceleration);
+
+        //This will make drag bigger to make it a little less floaty
+        if (Input.GetAxis("Horizontal") == 0 && Input.GetAxis("Vertical") == 0 && Input.GetAxis("Height") == 0)
+        {
+            rb.drag = 2;
+        }
+        else
+        {
+            rb.drag = 0;
+        }
+
     }
 
     //This is to make sure the player stays in the body and can accelerate to fun speeds
@@ -53,14 +74,18 @@ public class PlayerMovement : MonoBehaviour
     {        
         if(other.tag == "SpeedLimit")
         {
-            playerSpeed = 17;
+
+            playerSpeed = 500;
+
         }
     }
     private void OnTriggerExit(Collider other)
     {
         if (other.tag == "SpeedLimit")
         {
-            playerSpeed = 7;
+
+            playerSpeed = 300;
+
         }
     }
 }
