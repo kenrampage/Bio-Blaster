@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float rollSensitivity;
     [SerializeField] float playerSpeed;
     Rigidbody rb;
+    public float maxSpeed = 4000;
 
     void Start()
     {
@@ -15,6 +16,11 @@ public class PlayerMovement : MonoBehaviour
         //playerSpeed = 60;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+    }
+
+    private void Update()
+    {
+        print(rb.velocity);
     }
 
     void FixedUpdate()
@@ -47,9 +53,9 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //This will make the player move in all directions
-        rb.AddForce(transform.forward * Time.deltaTime * playerSpeed * Input.GetAxis("Vertical"), ForceMode.Acceleration);
-        rb.AddForce(transform.up * Time.deltaTime * playerSpeed * 0.9f * Input.GetAxis("Height"), ForceMode.Acceleration);
-        rb.AddForce(transform.right * Time.deltaTime * playerSpeed * 0.8f * Input.GetAxis("Horizontal"), ForceMode.Acceleration);
+        rb.AddForce(transform.forward * Time.deltaTime * playerSpeed * Input.GetAxis("Vertical"), ForceMode.Impulse);
+        rb.AddForce(transform.up * Time.deltaTime * playerSpeed * 0.9f * Input.GetAxis("Height"), ForceMode.Impulse);
+        rb.AddForce(transform.right * Time.deltaTime * playerSpeed * 0.8f * Input.GetAxis("Horizontal"), ForceMode.Impulse);
 
         //This will make drag bigger to make it a little less floaty
         if (Input.GetAxis("Horizontal") == 0 && Input.GetAxis("Vertical") == 0 && Input.GetAxis("Height") == 0)
@@ -60,6 +66,12 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.drag = 0;
         }
+
+        if (rb.velocity.magnitude > maxSpeed)
+        {
+            rb.velocity = Vector3.ClampMagnitude(rb.velocity, maxSpeed);
+        }
+
     }
 
     //This is to make sure the player stays in the body and can accelerate to fun speeds
