@@ -6,8 +6,6 @@ public class FlyingEnemy : MonoBehaviour
 {
 
     public Transform player;
-    public float maxLife;
-    public float currentLife;
 
 
     protected float speed;
@@ -22,12 +20,10 @@ public class FlyingEnemy : MonoBehaviour
     protected float targetDistance;
     protected float nextFire; 
     protected float damages;
+    protected LayerMask enemyLayer;
 
     public virtual void Awake()
     {
-        maxLife = 10f;
-        currentLife = maxLife;
-
         damages = 1f;
         speed = 5f;
         attackRange = 10f;
@@ -37,7 +33,7 @@ public class FlyingEnemy : MonoBehaviour
         shotDuration = new WaitForSeconds(0.5f);
     }
 
-    void Start()
+    public virtual void Start()
     {
         laserLine = GetComponent<LineRenderer>();
         laserAudio = GetComponent<AudioSource>();
@@ -45,14 +41,13 @@ public class FlyingEnemy : MonoBehaviour
         laserLine.widthMultiplier = 0.1f;
     }
 
-    void Update()
+    public virtual void Update()
     {
         if(PlayerInSight())
         {
             Move();
             Attack();
         }
-        
     }
 
     private bool PlayerInSight()
@@ -102,10 +97,10 @@ public class FlyingEnemy : MonoBehaviour
 
     }
 
-    public void GetHit(float damages)
-    {
-        currentLife -= damages;
-    }
+    // public void GetHit(float damages)
+    // {
+    //     currentLife -= damages;
+    // }
 
     private IEnumerator Shot()
     {
