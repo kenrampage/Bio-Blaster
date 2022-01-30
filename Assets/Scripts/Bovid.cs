@@ -25,13 +25,13 @@ public class Bovid : FlyingEnemy
         maxLife = 10f;
         currentLife = maxLife;
         visionDistance = 20f;
-        fireRate = 0.2f;
+        fireRate = 0.5f;
         damages = 1f;
     }
 
     public override void Start()
     {
-        // No start for now
+        // No start
     }
 
     public override void Update()
@@ -66,6 +66,7 @@ public class Bovid : FlyingEnemy
     {
         GameObject newBomb = Instantiate(bombPrefab, transform.position, Quaternion.identity);
         newBomb.transform.SetParent(bombsList);
+        newBomb.GetComponent<Bomb>().init(damages, player);
     }
 
     public override void Move()
