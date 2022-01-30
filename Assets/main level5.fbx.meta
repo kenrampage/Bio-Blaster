@@ -1,79 +1,14 @@
 fileFormatVersion: 2
-guid: c0b96dd857771fd4781472267b94fd46
+guid: 6b7283f0fe719c14586f63fa98ebe5e7
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: emission blue
-    second: {fileID: 2100000, guid: 02d5175a199532f419699515c392b638, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: emission green
-    second: {fileID: 2100000, guid: 0984c9588e7577143be4d30770cd41de, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: emission red
-    second: {fileID: 2100000, guid: 17d50376912828b4d8b940a0829d3a57, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: metal base
-    second: {instanceID: 0}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: monitors
-    second: {instanceID: 0}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: wire blue
-    second: {instanceID: 0}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: wire green
-    second: {instanceID: 0}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: wire red
-    second: {instanceID: 0}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: TexturesCom_Concrete_Polished_1K_albedo
-    second: {fileID: 2800000, guid: 434fd25aa6b2a064f8a58781004c2e8a, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: blue wire
-    second: {fileID: 2800000, guid: 0b3092bd495e3584ab6e7ce4f3d54720, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: concrete darkened 1
-    second: {fileID: 2800000, guid: 3094e6cedc9236c459802abd3a2d5852, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: green wire
-    second: {fileID: 2800000, guid: 298f729c735b69c45a1d4b9d21560a58, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: red wire
-    second: {fileID: 2800000, guid: f0083a9215e78d74289cb84420cf35c3, type: 3}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
     materialSearch: 1
-    materialLocation: 0
+    materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
