@@ -44,7 +44,6 @@ public class Bovid : FlyingEnemy
             {
                 nextFire = Time.time + fireRate;
 
-                // TODO - Spawn bomb prefab
                 SpawnBomb();
             }
 

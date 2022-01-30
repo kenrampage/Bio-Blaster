@@ -73,7 +73,7 @@ public class SpikyBoi : FlyingEnemy
         if(targetDistance <= attackRange && Time.time > nextFire)
         {
             nextFire = Time.time + fireRate;
-            //player.GetHit(damages);
+            player.GetComponent<PlayerHealth>().GetHit(damages);
         }
 
     }

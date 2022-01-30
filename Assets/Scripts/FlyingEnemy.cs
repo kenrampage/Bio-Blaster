@@ -91,6 +91,8 @@ public class FlyingEnemy : MonoBehaviour
             nextFire = Time.time + fireRate;
             StartCoroutine (Shot());
 
+            player.GetComponent<PlayerHealth>().GetHit(damages);
+
             laserLine.SetPosition (0, transform.position);
             laserLine.SetPosition (1, player.position);
         }

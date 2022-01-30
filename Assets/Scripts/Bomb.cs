@@ -56,7 +56,7 @@ public class Bomb : MonoBehaviour
 
         if(Vector3.Distance(transform.position, player.position) <= explosionRange)
         {
-            // player.GetHit(damages);
+            player.GetComponent<PlayerHealth>().GetHit(damages);
         }
 
         Destroy(gameObject);
