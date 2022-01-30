@@ -18,8 +18,6 @@ public class Adenovirus : FlyingEnemy
         moveDuration = Random.Range(0.1f, 0.3f);
         waitMoveDuration = new WaitForSeconds(moveDuration);
 
-        maxLife = 10f;
-        currentLife = maxLife;
         attackRange = 15f;
         followUntil = 10f;
         visionDistance = 40f;

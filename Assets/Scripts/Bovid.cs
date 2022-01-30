@@ -22,8 +22,6 @@ public class Bovid : FlyingEnemy
         enemyLayer = ~LayerMask.NameToLayer("Enemy");
 
         speed = 30f;
-        maxLife = 10f;
-        currentLife = maxLife;
         visionDistance = 20f;
         fireRate = 0.5f;
         damages = 1f;

@@ -6,8 +6,6 @@ public class FlyingEnemy : MonoBehaviour
 {
 
     public Transform player;
-    public float maxLife;
-    public float currentLife;
 
 
     protected float speed;
@@ -26,9 +24,6 @@ public class FlyingEnemy : MonoBehaviour
 
     public virtual void Awake()
     {
-        maxLife = 10f;
-        currentLife = maxLife;
-
         damages = 1f;
         speed = 5f;
         attackRange = 10f;
@@ -102,10 +97,10 @@ public class FlyingEnemy : MonoBehaviour
 
     }
 
-    public void GetHit(float damages)
-    {
-        currentLife -= damages;
-    }
+    // public void GetHit(float damages)
+    // {
+    //     currentLife -= damages;
+    // }
 
     private IEnumerator Shot()
     {
