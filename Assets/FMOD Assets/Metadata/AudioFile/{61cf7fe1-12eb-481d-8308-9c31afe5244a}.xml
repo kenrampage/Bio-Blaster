@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{61cf7fe1-12eb-481d-8308-9c31afe5244a}">
+		<property name="assetPath">
+			<value>SFX_Laser Hit Bio - Trimmed (2).wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.31528344671201813</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{5dd841b3-0760-4b00-a75b-606be0852d6b}</destination>
+		</relationship>
+	</object>
+</objects>
