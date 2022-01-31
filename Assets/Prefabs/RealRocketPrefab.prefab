@@ -9620,7 +9620,6 @@ GameObject:
   - component: {fileID: 4912564017532517485}
   - component: {fileID: 4912564017532517486}
   - component: {fileID: 4912564017532517487}
-  - component: {fileID: 1638682607429799869}
   m_Layer: 0
   m_Name: RealRocketPrefab
   m_TagString: Untagged
@@ -9658,6 +9657,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rocketSpeed: 25
+  explosion: {fileID: 4324459569539147006, guid: da1b696300ffecc429ca29c46279133d, type: 3}
+  damage: 10
 --- !u!54 &4912564017532517486
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -9687,19 +9688,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.43, y: 0.39376998, z: 1.2530499}
   m_Center: {x: 0, y: 0.009785414, z: -0.12652493}
---- !u!114 &1638682607429799869
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4912564017532517475}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a2eed8bf8c5cc549818dfba9b45316f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rocketSpeed: 0
 --- !u!1 &5255004928638164407
 GameObject:
   m_ObjectHideFlags: 0

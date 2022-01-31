@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{c228d0ff-0be3-4dfd-8fee-7f38d53907da}">
+		<property name="assetPath">
+			<value>SFX_Pause_On.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.49678004535147391</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{5dd841b3-0760-4b00-a75b-606be0852d6b}</destination>
+		</relationship>
+	</object>
+</objects>
