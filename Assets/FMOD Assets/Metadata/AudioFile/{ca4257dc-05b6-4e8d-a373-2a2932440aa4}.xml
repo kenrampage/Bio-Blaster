@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{ca4257dc-05b6-4e8d-a373-2a2932440aa4}">
+		<property name="assetPath">
+			<value>SFX_Bounce.ogg</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>34.000022675736965</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{5dd841b3-0760-4b00-a75b-606be0852d6b}</destination>
+		</relationship>
+	</object>
+</objects>
