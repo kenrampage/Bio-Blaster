@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{40798751-567f-4844-aedd-1982e0f6c815}">
+		<property name="assetPath">
+			<value>SFX_Player Hit 3 - Trimmed.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.45281179138321997</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{5dd841b3-0760-4b00-a75b-606be0852d6b}</destination>
+		</relationship>
+	</object>
+</objects>
