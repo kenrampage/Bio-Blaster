@@ -34,10 +34,10 @@ public class EnemyManager : MonoBehaviour
         nextEnemyWaveNumber = 1;
         waveDelay = 20f;
 
-        foreach (Transform g in organs)
-        {
-            Debug.Log(g.position);
-        }
+        // foreach (Transform g in organs)
+        // {
+        //     Debug.Log(g.position);
+        // }
     }
 
     void FixedUpdate()

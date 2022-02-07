@@ -15,6 +15,7 @@ public class FMODMusicPlayer : MonoBehaviour
     {
         fmodMusicRemote.onPlaybackStartTriggered += StartPlayback;
         fmodMusicRemote.onPlaybackStopTriggered += StopPlayback;
+        fmodMusicRemote.onPlaybackStopWithFadeoutTriggered += StopPlaybackFadeout;
         fmodMusicRemote.onPauseToggleTriggered += TogglePause;
         fmodMusicRemote.onSetSectionTriggered += SetSection;
     }
@@ -23,6 +24,7 @@ public class FMODMusicPlayer : MonoBehaviour
     {
         fmodMusicRemote.onPlaybackStartTriggered -= StartPlayback;
         fmodMusicRemote.onPlaybackStopTriggered -= StopPlayback;
+        fmodMusicRemote.onPlaybackStopWithFadeoutTriggered -= StopPlaybackFadeout;
         fmodMusicRemote.onPauseToggleTriggered -= TogglePause;
         fmodMusicRemote.onSetSectionTriggered -= SetSection;
     }

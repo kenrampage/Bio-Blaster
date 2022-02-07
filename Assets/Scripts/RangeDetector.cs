@@ -7,38 +7,18 @@ public class RangeDetector : MonoBehaviour
 {
     private GameObject[] enemies;
     public float targetDistance;
-    public bool inCombat;
+    public int enemiesInRange;
 
-    public bool InCombat
-    {
-        get { return inCombat; }
-        set
-        {
-            if (inCombat != value)
-            {
-                if (value == true)
-                {
-                    print("Starting Combat");
-                    onCombatStart?.Invoke();
-                }
-                else
-                {
-                    print("Ending Combat");
-                    onCombatEnd?.Invoke();
+    public bool enemiesInRangeBool;
 
-                }
-
-                inCombat = value;
-            } 
-        }
-    }
+    [SerializeField] private SOBool soBool;
 
     [SerializeField] private UnityEvent onCombatStart;
     [SerializeField] private UnityEvent onCombatEnd;
 
     private void Start()
     {
-        InCombat = false;
+        enemiesInRange = 0;
     }
 
     private void Update()
@@ -49,24 +29,28 @@ public class RangeDetector : MonoBehaviour
 
     private void CheckDistances()
     {
+        enemiesInRange = 0;
+
         foreach (var enemy in enemies)
         {
-            if ((enemy.transform.position - transform.position).magnitude <= targetDistance && !inCombat)
+            if ((enemy.transform.position - transform.position).magnitude <= targetDistance)
             {
-                InCombat = true;
-                
-                break;
+                enemiesInRange++;
             }
-            else if ((enemy.transform.position - transform.position).magnitude <= targetDistance && inCombat)
-            {
-                break;
-            }
-            else if (inCombat)
-            {
-                InCombat = false;
-                
-            }
-
         }
+
+        if (enemiesInRange > 0)
+        {
+            soBool.SetValue(true);
+            enemiesInRangeBool = true;
+            onCombatStart?.Invoke();
+        }
+        else
+        {
+            soBool.SetValue(false);
+            enemiesInRangeBool = false;
+            onCombatEnd?.Invoke();
+        }
+
     }
 }

@@ -15,16 +15,9 @@ public class PlayerHealth : MonoBehaviour
 
     [SerializeField] private UnityEvent onLevelEnd;
 
-    public bool inCombat;
-    public float combatCooldown;
-    public float currentCombatCooldownTimer;
-
-    [SerializeField] private UnityEvent onCombatStart;
-    [SerializeField] private UnityEvent onCombatEnd;
 
     void Start()
     {
-        inCombat = false;
         isAlive = true;
         maxLife = 40f;
         currentLife = maxLife;
@@ -32,22 +25,10 @@ public class PlayerHealth : MonoBehaviour
         regen = 0.5f;
         regenRate = 1f;
 
-        currentCombatCooldownTimer = combatCooldown;
     }
 
     void Update()
     {
-        if(inCombat)
-        {
-            currentCombatCooldownTimer -= Time.deltaTime;
-        }
-        
-
-        if (currentCombatCooldownTimer <= 0)
-        {
-            onCombatEnd?.Invoke();
-            inCombat = false;
-        }
 
         if (currentLife <= 0f && isAlive)
             {
@@ -70,11 +51,6 @@ public class PlayerHealth : MonoBehaviour
     public void GetHit(float damage)
     {
         currentLife = Mathf.Clamp(currentLife - damage, 0f, maxLife);
-        if(!inCombat)
-        {
-            onCombatStart?.Invoke();
-        }
-        inCombat = true;
-        currentCombatCooldownTimer = combatCooldown;
+
     }
 }

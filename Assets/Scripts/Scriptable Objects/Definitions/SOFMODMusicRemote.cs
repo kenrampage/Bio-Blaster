@@ -13,6 +13,7 @@ public class SOFMODMusicRemote : ScriptableObject
     public event Action onPauseToggleTriggered;
     public event Action onPlaybackStartTriggered;
     public event Action onPlaybackStopTriggered;
+    public event Action onPlaybackStopWithFadeoutTriggered;
     public event Action<int> onSetSectionTriggered;
     public event Action onSetHighPassOnTriggered;
     public event Action onSetHighPassOffTriggered;
@@ -30,6 +31,11 @@ public class SOFMODMusicRemote : ScriptableObject
     public void StopPlayback()
     {
         onPlaybackStopTriggered?.Invoke();
+    }
+
+    public void StopPlaybackWithFadeout()
+    {
+        onPlaybackStopWithFadeoutTriggered?.Invoke();
     }
 
     public void SetSection(int value)
