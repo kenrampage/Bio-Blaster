@@ -38,16 +38,16 @@ public class SOBoolHelper : MonoBehaviour
 
     private void HandleValueChanged(bool value)
     {
-        print("Bool changed");
+        
         onValueChanged?.Invoke(value);
         if (value)
         {
-            print("Bool changed to True");
+            
             onValueChangedToTrue?.Invoke();
         }
         else
         {
-            print("Bool changed to False");
+            
             onValueChangedToFalse?.Invoke();
         }
         currentValue = soBool.GetValue();
@@ -55,7 +55,7 @@ public class SOBoolHelper : MonoBehaviour
 
     private void HandleValueReset()
     {
-        print("Bool reset");
+        
         onValueReset?.Invoke();
         currentValue = soBool.GetValue();
     }

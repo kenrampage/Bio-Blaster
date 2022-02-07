@@ -20,10 +20,10 @@ public class EnemyManager : MonoBehaviour
     private Vector3 spawnDirection, spawnPosition;
     private float spawnDistance;
 
-    void Awake()
-    {
-        DontDestroyOnLoad(this.gameObject);
-    }
+    // void Awake()
+    // {
+    //     DontDestroyOnLoad(this.gameObject);
+    // }
 
     void Start()
     {
