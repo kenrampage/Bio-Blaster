@@ -13,9 +13,12 @@ public class SpikyBoi : FlyingEnemy
     private float spawnDistance;
     private Vector3 spawnDirection;
 
+    [SerializeField] private float duplicateDelayMin;
+    [SerializeField] private float duplicateDelayMax;
+
     public override void Awake()
     {
-        duplicateDelay = Random.Range(10f, 20f);
+        duplicateDelay = Random.Range(duplicateDelayMin, duplicateDelayMax);
         nextDuplication = Time.time + duplicateDelay;
         spawnDistance = 3f;
 
@@ -44,7 +47,7 @@ public class SpikyBoi : FlyingEnemy
 
         if(Time.time > nextDuplication)
         {
-            duplicateDelay = Random.Range(6f, 10f);
+            duplicateDelay = Random.Range(duplicateDelayMin, duplicateDelayMax);
             nextDuplication = Time.time + duplicateDelay;
             
             Duplicate();

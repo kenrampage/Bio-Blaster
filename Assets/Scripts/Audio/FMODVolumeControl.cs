@@ -1,64 +1,103 @@
 using UnityEngine;
 using FMODUnity;
-using FMOD;
+using UnityEngine.UI;
 
 public class FMODVolumeControl : MonoBehaviour
 {
-    [SerializeField] private SOFloat musicVolumeSO;
-    [SerializeField] private SOFloat effectsVolumeSO;
+    [SerializeField] private FMOD.Studio.Bus musicBus;
+    [SerializeField] private FMOD.Studio.Bus effectsBus;
 
-    public FMOD.Studio.Bus musicBus;
-    public FMOD.Studio.Bus effectsBus;
+    [SerializeField] private float musicVolume;
+    [SerializeField] private float effectsVolume;
+
+    [SerializeField] private Image musicBar;
+    [SerializeField] private Image effectsBar;
 
     private void Awake()
     {
         GetBusReferences();
-        SyncSOValues();
+        GetVolumes();
+        SetVolumeBars();
+
     }
 
     private void OnEnable()
     {
-        musicVolumeSO.onValueChanged += SetMusicVolume;
-        effectsVolumeSO.onValueChanged += SetEffectsVolume;
-    }
-
-    private void OnDisable()
-    {
-        musicVolumeSO.onValueChanged -= SetMusicVolume;
-        effectsVolumeSO.onValueChanged -= SetEffectsVolume;
-    }
-
-    public void SetMusicVolume(float v)
-    {
         GetBusReferences();
-        musicBus.setVolume(v);
+        GetVolumes();
+        SetVolumeBars();
     }
 
-    public void SetEffectsVolume(float v)
+    public void MusicVolumeUp()
     {
-        GetBusReferences();
-        effectsBus.setVolume(v);
+        GetVolumes();
+        if (musicVolume < 1)
+        {
+            musicBus.setVolume(musicVolume + .1f);
+            if (musicVolume > 1)
+            {
+                musicVolume = 1;
+                musicBus.setVolume(1);
+            }
+        }
+        GetVolumes();
+        SetVolumeBars();
     }
 
-    public float GetMusicVolume()
+    public void MusicVolumeDown()
     {
-        float v;
-        musicBus.getVolume(out v);
-        return v;
+        GetVolumes();
+
+        if (musicVolume > 0)
+        {
+            musicBus.setVolume(musicVolume - .1f);
+            if (musicVolume < 0)
+            {
+                musicVolume = 0;
+                musicBus.setVolume(0);
+            }
+        }
+
+        GetVolumes();
+        SetVolumeBars();
     }
 
-    public float GetEffectsVolume()
+    public void EffectsVolumeUp()
     {
-        float v;
-        effectsBus.getVolume(out v);
-        return v;
+        GetVolumes();
+        if (effectsVolume < 1)
+        {
+            effectsBus.setVolume(effectsVolume + .1f);
+            if (effectsVolume > 1)
+            {
+                effectsVolume = 1;
+                effectsBus.setVolume(1);
+            }
+        }
+        GetVolumes();
+        SetVolumeBars();
+
     }
 
-    public void SyncSOValues()
+    public void EffectsVolumeDown()
     {
-        musicVolumeSO.SetValue(GetMusicVolume());
-        effectsVolumeSO.SetValue(GetEffectsVolume());
+        GetVolumes();
+
+        if (effectsVolume > 0)
+        {
+            effectsBus.setVolume(effectsVolume - .1f);
+            if (effectsVolume < 0)
+            {
+                effectsVolume = 0;
+                effectsBus.setVolume(0);
+            }
+        }
+
+        GetVolumes();
+        SetVolumeBars();
+
     }
+
 
     public void GetBusReferences()
     {
@@ -71,5 +110,17 @@ public class FMODVolumeControl : MonoBehaviour
         {
             musicBus = RuntimeManager.GetBus("bus:/Music");
         }
+    }
+
+    public void GetVolumes()
+    {
+        musicBus.getVolume(out musicVolume);
+        effectsBus.getVolume(out effectsVolume);
+    }
+
+    public void SetVolumeBars()
+    {
+        musicBar.fillAmount = musicVolume;
+        effectsBar.fillAmount = effectsVolume;
     }
 }

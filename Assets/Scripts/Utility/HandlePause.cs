@@ -4,7 +4,7 @@ using UnityEngine.Events;
 public class HandlePause : MonoBehaviour
 {
     public GameObject uiCanvas;
-    public bool isPaused;
+    public static bool isPaused;
     public FMODPlayOneShot pauseSound;
     public FMODPlayOneShot unpauseSound;
 

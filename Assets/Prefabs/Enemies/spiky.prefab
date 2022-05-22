@@ -81,7 +81,7 @@ Transform:
   m_GameObject: {fileID: 6610356966870617391}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_Children:
   - {fileID: 7185877137022075405}
   - {fileID: 5623994218444403271}
@@ -179,6 +179,8 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   selfPrefab: {fileID: 6610356966870617391}
+  duplicateDelayMin: 60
+  duplicateDelayMax: 120
 --- !u!114 &6610356966870617557
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,5 +1,4 @@
- using System.Collections;
-using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -35,7 +34,7 @@ public class PlayerCombat : MonoBehaviour
         //Light attack, which is faster to use.
         if (Input.GetMouseButton(0))
         {
-            if (canShoot)
+            if (canShoot && !HandlePause.isPaused)
             {
                 // Debug.Log("1");
                 for (int i = 0; i < 2; i++)

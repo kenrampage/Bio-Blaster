@@ -12,6 +12,7 @@ public class RocketScript : MonoBehaviour
     [SerializeField] ParticleSystem explosion;
     [SerializeField] float damage;
     [SerializeField] private GameObject explosionSoundPrefab;
+    [SerializeField] private float explosionRadius;
 
     // Start is called before the first frame update
     void Start()
@@ -27,7 +28,7 @@ public class RocketScript : MonoBehaviour
         rb.AddForce(-transform.forward * rocketSpeed, ForceMode.Acceleration);
 
         //Make sure an explosion gets played and the rocket gets deleted.
-        Collider[] hitColliders = Physics.OverlapSphere(transform.position, 3f);
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, explosionRadius);
         foreach (Collider hitCollider in hitColliders)
         {
             if (hitCollider.gameObject.tag == "Enemy")

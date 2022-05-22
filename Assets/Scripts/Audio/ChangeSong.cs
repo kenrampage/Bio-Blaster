@@ -11,7 +11,7 @@ public class ChangeSong : MonoBehaviour
     [ContextMenu("Start Battle Music")]
     public void StartBattleMusic()
     {
-
+        StopAllCoroutines();
         // travelMusicRemote.StopPlaybackWithFadeout();
         StartCoroutine(StopMusicAfterDelay(1, travelMusicRemote));
         StartCoroutine(StartMusicAfterDelay(3, battleMusicRemote));
@@ -21,6 +21,7 @@ public class ChangeSong : MonoBehaviour
     [ContextMenu("Start Travel Music")]
     public void StartTravelMusic()
     {
+        StopAllCoroutines();
         battleMusicRemote.SetSection(1);
         // battleMusicRemote.StopPlaybackWithFadeout();
         StartCoroutine(StopMusicAfterDelay(1, battleMusicRemote));

@@ -6,7 +6,6 @@ public class FMODPlaySimple : MonoBehaviour
 {
     public FMODUnity.EventReference fmodEvent;
     // [SerializeField] [EventRef] private string fmodEvent;
-    [SerializeField] private bool ignoreSeekSpeed;
     [SerializeField] private bool startOnEnable;
     [SerializeField] private FMOD.Studio.PLAYBACK_STATE playbackState;
 
@@ -47,16 +46,23 @@ public class FMODPlaySimple : MonoBehaviour
         ReleaseEvent();
     }
 
+    private void OnDestroy()
+    {
+        StopEventWithFadeout();
+        ReleaseEvent();
+    }
+
     [ContextMenu("Start Event")]
     public void StartEvent()
     {
+        print("Event Started at: " + transform.position);
         GetPlaybackState();
-        if(playbackState != FMOD.Studio.PLAYBACK_STATE.PLAYING)
+        if (playbackState != FMOD.Studio.PLAYBACK_STATE.PLAYING)
         {
             eventInstance.start();
             GetPlaybackState();
         }
-        
+
     }
 
     public void PauseEvent()

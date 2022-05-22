@@ -7,6 +7,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float mouseSensitivity;
     [SerializeField] float rollSensitivity;
     [SerializeField] float playerSpeed;
+
+    [SerializeField] private int mouseYModifier;
+    [SerializeField] public bool mouseInverted;
+
     Rigidbody rb;
     public float maxSpeed = 4000;
 
@@ -36,7 +40,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //This makes the turn the ship left to right, multiplied by sensitivity
-        transform.Rotate(mouseSensitivity * Input.GetAxis("Mouse Y") * Time.deltaTime, mouseSensitivity * Input.GetAxis("Mouse X") * 0.75f * Time.deltaTime, -Input.GetAxis("Roll") * rollSensitivity * Time.deltaTime);
+        transform.Rotate(mouseSensitivity * Input.GetAxis("Mouse Y") * Time.deltaTime * mouseYModifier, mouseSensitivity * Input.GetAxis("Mouse X") * 0.75f * Time.deltaTime, -Input.GetAxis("Roll") * rollSensitivity * Time.deltaTime);
 
         //This will increase the amount of roll te longer you roll, to give a more dynamic feel
         if (Input.GetAxis("Roll") != 0)
@@ -89,4 +93,17 @@ public class PlayerMovement : MonoBehaviour
             playerSpeed = 300;
         }
     }
+
+    public void MouseInvertedOn()
+    {
+        mouseInverted = true;
+        mouseYModifier = 1;
+    }
+
+    public void MouseInvertedOff()
+    {
+        mouseInverted = false;
+        mouseYModifier = -1;
+    }
+
 }
